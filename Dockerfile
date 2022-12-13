@@ -24,7 +24,7 @@ RUN \
 	:
 
 # Don’t run Node.js apps as root
-USER node
+# USER node
 
 # Create config and app directory
 WORKDIR /usr/src/config
@@ -35,7 +35,7 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY --chown=node:node package*.json ./
 
-RUN npm ci --only=production
+RUN npm ci
 
 # Bundle app source
 COPY --chown=node:node . .
